@@ -1,0 +1,28 @@
+<h3>Create Book</h3>
+<a routerLink="">Back</a>
+<form #bookForm="ngForm" (ngSubmit)="createBook(bookForm)">
+ <table>
+   <tr>
+     <td>Title</td>
+     <td><input type="text" name="title" #title= "ngModel" required [(ngModel)]="book.title"></td>
+     <td *ngIf="bookForm.invalid && isSubmitted"></td>
+     <td *ngIf="title.errors?.required">Phai dien</td>
+   </tr>
+   <tr>
+     <td>Author</td>
+     <td><input type="text" name="author" #author="ngModel" required [(ngModel)]="book.author"></td>
+     <td *ngIf="bookForm.invalid && isSubmitted"></td>
+     <td *ngIf="author.errors?.required">Phai dien</td>
+   </tr>
+   <tr>
+     <td>Description</td>
+     <td><input type="text" name="description" #description="ngModel" required [(ngModel)]="book.description"></td>
+     <td *ngIf="bookForm.invalid && isSubmitted"></td>
+     <td *ngIf="description.errors?.required">Phai dien</td>
+   </tr>
+   <tr>
+     <td></td>
+     <td><button>Create</button></td>
+   </tr>
+ </table>
+</form>
